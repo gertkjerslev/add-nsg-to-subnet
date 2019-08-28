@@ -125,14 +125,14 @@
   "resources": [
     {
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('NSGname')]",
+      "name": "[parameters('NSGname')]", 
       "location": "[resourceGroup().location]",
       "apiVersion": "2018-03-01",
       "properties": {
         "securityRules": [
           {
+            "name": "[parameters('NSGRSname')]",
             "properties": {
-              "name": "[parameters('NSGRSname')]",
               "description": "[parameters('NSGSdescription')]",
               "protocol": "[parameters('NSGSRprotocol')]", 
               "sourcePortRange": "[parameters('NSGSsourcePortRange')]",
@@ -172,7 +172,7 @@
             "value": "[reference(resourceId(parameters('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName')), '2018-03-01').addressPrefix]"
           },
           "nsgId": {
-            "value": "[resourceId('Microsoft.Network/networkSecurityGroups','/', parameters('NSGname'))]"
+            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSGname'))]"
           }
         }
       }
