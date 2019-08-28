@@ -132,7 +132,7 @@
         "securityRules": [
           {
             "properties": {
-              "name": "[concat(parameters('NSGname'),'/',parameters('NSGRSname'))]",
+              "name": "[parameters('NSGRSname')]",
               "description": "[parameters('NSGSdescription')]",
               "protocol": "[parameters('NSGSRprotocol')]", 
               "sourcePortRange": "[parameters('NSGSsourcePortRange')]",
@@ -172,7 +172,7 @@
             "value": "[reference(resourceId(parameters('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName')), '2018-03-01').addressPrefix]"
           },
           "nsgId": {
-            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('NSGname'),'/',parameters('NSGRSname')))]"
+            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSGRSname'))]"
           }
         }
       }
