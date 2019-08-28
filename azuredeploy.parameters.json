@@ -10,6 +10,12 @@
     },
     "subnetName": {
       "value": "GET-PREREQ-subnetName"
+    },
+    "NSGname": {
+      "value": "GET-PREREQ-NSGname"
+    },
+    "NSGprotocol": {
+      "value": "GET-PREREQ-NSGprotocol"
     }
   }
 }

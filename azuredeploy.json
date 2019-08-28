@@ -21,6 +21,26 @@
         "description": "The name of the existing subnet."
       }
     },
+    "NSGname": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the NSG"
+      }
+    },
+    "NSGprotocol": {
+      "type": "string",
+      "allowedValues": [
+        "tcp",
+        "udp",
+        "*",
+        "icmp"
+      ]
+      ,
+      "metadata": {
+        "description": "Protocol for the NSG TCP/UDP"
+      }
+    }
+    ,
     "_artifactsLocation": {
       "type": "string",
       "metadata": {
@@ -40,7 +60,7 @@
   "resources": [
     {
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "new-nsg",
+      "name": "[parameters('NSGname')]", 
       "location": "[resourceGroup().location]",
       "apiVersion": "2018-03-01",
       "properties": {
@@ -49,7 +69,7 @@
             "name": "SSH",
             "properties": {
               "description": "Allows SSH traffic",
-              "protocol": "Tcp",
+              "protocol": "[parameters('NSGprotocol')]", 
               "sourcePortRange": "*",
               "destinationPortRange": "22",
               "sourceAddressPrefix": "*",
