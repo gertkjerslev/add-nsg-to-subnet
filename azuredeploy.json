@@ -27,7 +27,7 @@
         "description": "Name of the NSG"
       }
     },
-    "NSGprotocol": {
+    "NSGSRprotocol": {
       "type": "string",
       "allowedValues": [
         "tcp",
@@ -39,8 +39,72 @@
       "metadata": {
         "description": "Protocol for the NSG TCP/UDP"
       }
-    }
-    ,
+    },
+    "NSGRSname": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Security Rule"
+      }
+    },
+    "NSGSdescription": {
+      "type": "string",
+      "metadata": {
+        "description": "Description for Security Rule"
+      }
+    },
+    "NSGSsourcePortRange": {
+      "type": "string",
+      "metadata": {
+        "description": "Source Port Range for Security Rule"
+      }
+    },
+    "NSGSdestinationPortRange": {
+      "type": "string",
+      "metadata": {
+        "description": "Destination Port Range for Security Rule"
+      }
+    },
+    "NSGSsourceAddressPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Source Address Prefix for Security Rule"
+      }
+    },
+    "NSGSdestinationAddressPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Destination Address Prefix for Security Rule"
+      }
+    },
+    "NSGSaccess": {
+      "type": "string",
+      "allowedValues": [
+        "allow",
+        "deny"
+      ]
+      ,
+      "metadata": {
+        "description": "Protocol for the NSG TCP/UDP"
+      }
+    },
+    "NSGSpriority": {
+      "type": "string",
+      "metadata": {
+        "description": "Priority for Security Rule"
+      }
+    },
+    
+    "NSGSdirection": {
+      "type": "string",
+      "allowedValues": [
+        "inbound",
+        "outbound"
+      ]
+      ,
+      "metadata": {
+        "description": "Protocol for the NSG TCP/UDP"
+      }
+    },
     "_artifactsLocation": {
       "type": "string",
       "metadata": {
@@ -66,17 +130,17 @@
       "properties": {
         "securityRules": [
           {
-            "name": "SSH",
+            "name": "[parameters('NSGRSname')]",
             "properties": {
-              "description": "Allows SSH traffic",
-              "protocol": "[parameters('NSGprotocol')]", 
-              "sourcePortRange": "*",
-              "destinationPortRange": "22",
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
+              "description": "[parameters('NSGSdescription')]",
+              "protocol": "[parameters('NSGSRprotocol')]", 
+              "sourcePortRange": "[parameters('NSGSsourcePortRange')]",
+              "destinationPortRange": "[parameters('NSGSdestinationPortRange')]",
+              "sourceAddressPrefix": "[parameters('NSGSsourceAddressPrefix')]",
+              "destinationAddressPrefix": "[parameters('NSGSdestinationAddressPrefix')]",
+              "access": "[parameters('NSGSaccess')]",
+              "priority": "[parameters('NSGSpriority')]",
+              "direction": "[parameters('NSGSdirection')]"
             }
           }
         ]

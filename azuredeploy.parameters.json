@@ -14,8 +14,43 @@
     "NSGname": {
       "value": "GET-PREREQ-NSGname"
     },
-    "NSGprotocol": {
-      "value": "GET-PREREQ-NSGprotocol"
+    "NSGRSname": {
+      "value": "GET-PREREQ-NSGRSname"
+    },
+    "NSGSRprotocol": {
+      "value": "GET-PREREQ-NSGSRprotocol"
+    }
+    ,
+    "NSGSdescription": {
+      "value": "GET-PREREQ-NSGSdescription"
+    }
+    ,
+    "NSGSsourcePortRange": {
+      "value": "GET-PREREQ-NSGSsourcePortRange"
+    }
+    ,
+    "NSGSdestinationPortRange": {
+      "value": "GET-PREREQ-NSGSdestinationPortRange"
+    }
+    ,
+    "NSGSsourceAddressPrefix": {
+      "value": "GET-PREREQ-NSGSsourceAddressPrefix"
+    }
+    ,
+    "NSGSdestinationAddressPrefix": {
+      "value": "GET-PREREQ-NSGSdestinationAddressPrefix"
+    }
+    ,
+    "NSGSaccess": {
+      "value": "GET-PREREQ-NSGSaccess"
+    }
+    ,
+    "NSGSpriority": {
+      "value": "GET-PREREQ-NSGSpriority"
+    }
+    ,
+    "NSGSdirection": {
+      "value": "GET-PREREQ-NSGSpriority"
     }
   }
 }
