@@ -125,13 +125,14 @@
   "resources": [
     {
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[concat(parameters('NSGname'),'/',parameters('NSGRSname'))]",
+      "name": "[parameters('NSGname')]",
       "location": "[resourceGroup().location]",
       "apiVersion": "2018-03-01",
       "properties": {
         "securityRules": [
           {
             "properties": {
+              "name": "[concat(parameters('NSGname'),'/',parameters('NSGRSname'))]",
               "description": "[parameters('NSGSdescription')]",
               "protocol": "[parameters('NSGSRprotocol')]", 
               "sourcePortRange": "[parameters('NSGSsourcePortRange')]",
