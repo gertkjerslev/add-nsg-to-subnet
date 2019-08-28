@@ -49,7 +49,7 @@
     "NSGSdescription": {
       "type": "string",
       "metadata": {
-        "description": "Description for Security Rule"
+        "description": "A description for this rule. Restricted to 140 chars."
       }
     },
     "NSGSsourcePortRange": {
@@ -127,7 +127,7 @@
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[parameters('NSGname')]", 
       "location": "[resourceGroup().location]",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-04-01",
       "properties": {
         "securityRules": [
           {
